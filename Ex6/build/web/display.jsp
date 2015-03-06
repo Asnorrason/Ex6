@@ -14,7 +14,7 @@
     </head>
     <body>
         <c:forEach var="p" items="${parts}">
-            <p> ${p.pno}</p>
+            <p> ${p}</p>
         </c:forEach>
     </body>
 </html>

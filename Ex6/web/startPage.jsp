@@ -1,11 +1,10 @@
 <%-- 
-    Document   : display.jsp
-    Created on : Mar 6, 2015, 10:21:03 AM
-    Author     : sofus
+    Document   : startPage
+    Created on : 06-03-2015, 11:39:29
+    Author     : andreassnorrason
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,8 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach var="p" items="${parts}">
-            <p> ${p}</p>
-        </c:forEach>
+        <h1>Hello World!</h1>
+        
     </body>
 </html>
