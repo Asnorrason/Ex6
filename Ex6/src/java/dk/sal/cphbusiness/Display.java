@@ -41,8 +41,9 @@ public class Display extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int price = Integer.parseInt(request.getParameter("price"));
         try { 
-            request.setAttribute("parts", DataManager.getAllParts());
+            request.setAttribute("parts", DataManager.getMaxParts(price));
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Display.class.getName()).log(Level.SEVERE, null, ex);

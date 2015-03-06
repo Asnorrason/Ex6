@@ -60,4 +60,42 @@ public class DataManager {
 
         return out;
     }
+        public static ArrayList<PartDTO> getMaxParts(int price) throws ClassNotFoundException, SQLException {
+        ArrayList<PartDTO> out = new ArrayList<>();
+
+        ResultSet rs = null;
+        Statement statement = null;
+        Connection connection = null;
+
+        try {
+            //=== Load the JDBC-driver
+            Class.forName(DB.driver);
+
+            //=== Connect to the database
+            connection = DriverManager.getConnection(DB.URL, DB.ID, DB.PW);
+
+            //==== Instantiate a statement object 
+            statement = connection.createStatement();
+
+            //=== Build an SQL-query-statement
+            String query = "SELECT * FROM parts where price <"+price;
+
+            //=== Execute the query and receive the result
+            rs = statement.executeQuery(query);
+
+            //=== read the result
+            while (rs.next()) {
+                out.add(new PartDTO(rs.getInt("pno"), rs.getString("pname"), rs.getInt("qoh"), rs.getDouble("price"), rs.getInt("olevel")));
+
+            }
+        } //=== If database driver is unavailable or query fails
+         //=== Always close the statement and connection
+        finally {
+                statement.close();
+                connection.close();
+            
+        }
+
+        return out;
+    }
 }

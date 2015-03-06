@@ -13,6 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <form action="display" method="get">
+            <input type="text" name="price" placeholder="Insert Price">
+            <button type="submit">Enter</button>
+        </form>
         <c:forEach var="p" items="${parts}">
             <p> ${p}</p>
         </c:forEach>
